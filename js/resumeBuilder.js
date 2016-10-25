@@ -1,5 +1,9 @@
-$("#main").append("Joe Francis");
+//$("#main").append("Joe Francis");
 
-var awesomeThoughts = "I am Joe Francis and I am AMAZING!"
+var amazingThoughts = "I am Joe Francis and I am AMAZING!"
 
-console.log(awesomeThoughts);
+//console.log(amazingThoughts);
+
+var funThoughts = amazingThoughts.replace("amazing", "fun")
+
+$("#main").append(funThoughts);

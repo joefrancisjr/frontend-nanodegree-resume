@@ -8,11 +8,7 @@
 
 //$("#main").append(funThoughts);
 
-var formattedName = HTMLheaderName.replace("%data%", "Joe Francis")
 
-var formattedRole = HTMLheaderRole.replace("%data%", "Web Developer")
-
-$("#header").prepend(formattedName, formattedRole);
 
 var bio = {
   "name": "Joe Francis",
@@ -30,3 +26,31 @@ var bio = {
   ],
   "bioPic": "images/me.jpg"
 };
+
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+$("#header").prepend(formattedName, formattedRole);
+
+var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+("#topContacts").append(formattedMobile);
+
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+("#main").append(formattedEmail);
+
+var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+("#main").append(formattedGithub);
+
+var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+("#main").append(formattedTwitter);
+
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+("#main").append(formattedLocation);
+
+var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+("#main").append(formattedWelcomeMsg);
+
+var formattedSkills = HTMLskills.replace("%data", bio.skills);
+("#main").append(formattedSkills);
+
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+("#main").append(formattedBioPic);

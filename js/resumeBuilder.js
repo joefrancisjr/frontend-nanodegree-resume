@@ -36,12 +36,20 @@ var projects = {
     {
       "title" : "Portfolio",
       "dates" : "October 2016",
-      "description" : "A project created in Udacity's Front End Web Developer Nanodegree program. This is a display of HTML, CSS, and responsive deisgn."
+      "description" : "A project created in Udacity's Front End Web Developer Nanodegree program. This is a display of HTML, CSS, and responsive deisgn.",
+      "images" : [
+        "http://image.com/image.jpg",
+        "http://image.com/image.jpg"
+      ]
     },
     {
       "title" : "Resume",
       "dates" : "November 2016",
-      "description" : "Another FEND project. This displays use of Javascript."
+      "description" : "Another FEND project. This displays use of Javascript.",
+      "images" : [
+        "http://image.com/image.jpg",
+        "http://image.com/image.jpg"
+      ]
     }
   ]
 };

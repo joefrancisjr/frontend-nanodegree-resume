@@ -27,6 +27,48 @@ var bio = {
   "bioPic" : "images/me.jpg"
 };
 
+var work = {};
+work.position = "Sales Manager";
+work.employer = "Wave";
+work.years = 5;
+work.city = "San Francisco";
+
+//var education = {};
+//education["name"] = "Udacity";
+//education["years"] = "2016";
+//education["city"] = "San Francisco";
+
+$("#main").append(work["position"]);
+//$("#main").append(education.name);
+
+var education = {
+  "schools": [
+    {
+      "school" : "Regional Technical Institute",
+      "city" : "Reno, NV",
+      "major" : "Hardware and Computer Networking",
+      "minor" : "",
+      "graduationYear" : "2005",
+      "courseInfo" : "https://en.wikipedia.org/wiki/Academy_of_Arts,_Careers_and_Technology"
+    },
+    {
+      "school" : "Truckee Meadows Community College",
+      "city" : "Reno, NV",
+      "major" : "Computer Networking",
+      "minor" : "Web Design",
+      "graduationYear" : "2007",
+      "courseInfo" : "http://catalog.tmcc.edu/degrees-certificates/"
+    },
+    {
+      "school" : "Udacity",
+      "city" : "San Francisco, CA",
+      "major" : "Front End Web Developer",
+      "minor" : "",
+      "graduationYear" : "2016",
+      "courseInfo" : "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001?v=fe1"
+    }
+  ]
+}
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 $("#header").prepend(formattedName, formattedRole);

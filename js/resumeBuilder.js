@@ -118,7 +118,7 @@ if (bio.skills.length > 0) {
   $("#skills").append(formattedSkill);
 }
 
-for (job in work.jobs) {
+jobs.work.forEach(function(job) {
   $("#workExperience").append(HTMLworkStart);
 
   var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);

@@ -4,7 +4,7 @@ var work = {
       "employer" : "Wave",
       "title" : "Manager, Regional Direct Sales",
       "location" : "San Francisco, CA",
-      "dates" : "June 2011 - Current",
+      "dates" : "June 2011 - in progress",
       "description" : "In my current role I am responsible for the success of a small team of Direct Sales Representatives. They sell high speed internet, digital cable, and telephone service to the residents of San Francisco and San Mateo County."
     },
     {
@@ -71,24 +71,6 @@ var bio = {
   ],
 };
 
-var nameHTML = HTMLheaderName.replace("%data%", bio.name);
-
-$("#header").append(nameHTML);
-
-if (bio.skills.length > 0) {
-
-  $("#header").append(HTMLskillsStart);
-
-  var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-  $("#skills").append(formattedSkill);
-  formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-  $("#skills").append(formattedSkill);
-  formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-  $("#skills").append(formattedSkill);
-  formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-  $("#skills").append(formattedSkill);
-}
-
 var education = {
   "schools": [
     {
@@ -116,4 +98,38 @@ var education = {
       "courseInfo" : "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001?v=fe1"
     }
   ]
+};
+
+var nameHTML = HTMLheaderName.replace("%data%", bio.name);
+
+$("#header").append(nameHTML);
+
+if (bio.skills.length > 0) {
+
+  $("#header").append(HTMLskillsStart);
+
+  var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+  $("#skills").append(formattedSkill);
+  formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+  $("#skills").append(formattedSkill);
+  formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+  $("#skills").append(formattedSkill);
+  formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+  $("#skills").append(formattedSkill);
+}
+
+for (job in work.jobs) {
+  $("#workExperience").append(HTMLworkStart);
+
+  var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+  var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+  var formattedEmployerTitle = formattedEmployer + formattedTitle;
+  var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+  var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+  var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+
+  $(".work-entry:last").append(formattedEmployerTitle);
+  $(".work-entry:last").append(formattedLocation);
+  $(".work-entry:last").append(formattedDates);
+  $(".work-entry:last").append(formattedDescription);
 };

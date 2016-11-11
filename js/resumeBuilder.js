@@ -100,9 +100,32 @@ var education = {
   ]
 };
 
-var nameHTML = HTMLheaderName.replace("%data%", bio.name);
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+$("#header").append(formattedName);
 
-$("#header").append(nameHTML);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+$("#header").append(formattedRole);
+
+var formattedWelcomeMesg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+$("#header").append(formattedWelcomeMesg);
+
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
+$("#header").append(formattedBioPic);
+
+var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+$("#header").append(formattedMobile);
+
+var formattedemail = HTMLemail.replace("%data%", bio.contacts.email);
+$("#header").append(formattedemail);
+
+var formattedgithub = HTMLgithub.replace("%data%", bio.contacts.github);
+$("#header").append(formattedgithub);
+
+var formattedtwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+$("#header").append(formattedtwitter);
+
+var formattedlocation = HTMLlocation.replace("%data%", bio.contacts.location);
+$("#header").append(formattedlocation);
 
 if (bio.skills.length > 0) {
 
@@ -149,7 +172,6 @@ $(document).click(function(loc) {
 
 function inName(name) {
   name = name.trim().split(" ");
-  //console.log(name);
   name[1] = name[1].toUpperCase();
   name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
 
@@ -182,3 +204,22 @@ projects.display = function () {
   };
 
 projects.display();
+
+education.display = function () {
+  for (school in schools.education) {
+      $("#education").append(HTMLschoolStart);
+
+      var formattedSchoolName = HTMLSchoolName.replace("%data%", schools.education[school].school);
+      $(".education-entry:last").append(formattedSchoolName);
+
+      var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", schools.education[school].city);
+      $(".education-entry:last").append(formattedSchoolLocation);
+
+      var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", schools.education[school].major);
+      $(".education-entry:last").append(formattedSchoolMajor);
+    }
+  };
+
+education.display();
+
+$("#mapDiv").append(googleMap);

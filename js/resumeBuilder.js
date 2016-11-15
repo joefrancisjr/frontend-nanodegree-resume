@@ -218,6 +218,21 @@ education.display = function () {
       var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
       $(".education-entry:last").append(formattedSchoolDates);
     };
+    for (onlineClass in education.online) {
+      $("#education").append(HTMLonlineClassesStart);
+      $(".online-classes:last").append(HTMLonlineClasses);
+      var onlineSchoolName = HTMLonlineSchool.replace("%data%", education.online[onlineClass].school);
+      $(".online-classes:last").append(HTMLonlineClasses);
+
+      var onlineSchoolTitle = HTMLonlineTitle.replace("%data%", education.online[onlineClass].title);
+      $(".online-classes:last").append(HTMLonlineTitle);
+
+      var onlineSchoolURL = HTMLonlineURL.replace("%data%", education.online[onlineClass].url);
+      $(".online-classes:last").append(HTMLonlineURL);
+
+      var onlineSchoolDates = HTMLonlineDates.replace("%data%", education.online[onlineClass].dates);
+      $(".online-classes:last").append(HTMLonlineDates);
+    }
 };
 
 education.display();

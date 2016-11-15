@@ -3,28 +3,28 @@ var work = {
     {
       "employer" : "Wave",
       "title" : "Manager, Regional Direct Sales",
-      "location" : "San Francisco, CA",
+      "location" : "200 Paul Ave, San Francisco, CA 94124",
       "dates" : "June 2011 - in progress",
       "description" : "In my current role I am responsible for the success of a small team of Direct Sales Representatives. They sell high speed internet, digital cable, and telephone service to the residents of San Francisco and San Mateo County."
     },
     {
       "employer" : "7-Eleven",
       "title" : "Graveyard Cashier",
-      "location" : "Reno, NV",
+      "location" : "12605 S Virginia St, Reno, NV 89511",
       "dates" : "April 2011 - May 2011",
       "description" : "As a Graveyard Cashier, I was responsible for helping customers and performing cleaning and stocking of the store."
     },
     {
       "employer" : "NCR",
       "title" : "Staging Tech",
-      "location" : "Reno, NV",
+      "location" : "5360 Capital Ct, Reno, NV 89502",
       "dates" : "September 2010 - March 2011",
       "description" : "As a Staging Tech at NCR, I would pick orders for customers and configure it using a terminal so it would be ready when arriving to the customer."
     },
     {
       "employer" : "Arvato",
       "title" : "Contract Processor",
-      "location" : "Reno, NV",
+      "location" : "6100 Neil Rd, Reno, NV 89511",
       "dates" : "September 2009 - August 2010",
       "description" : "I worked on a small team focused on processing credits for global customers of Microsoft running Office and Windows promotions with their customers. Day to day activity was heavily involved in Excel and communicating with management from various teams across the globe."
     }
@@ -57,14 +57,14 @@ var projects = {
 var bio = {
   "name" : "Joe Francis",
   "role" : "Web Developer",
-  "welcomeMessage" : "Filler filler filler text text text text text.",
+  "welcomeMessage" : "Welcome to my resume. This is an exampe of Javascript and how it can be used to populate a page.",
   "biopic" : "images/me.jpg",
   "contacts" : {
-    "mobile" : "650-762-9762",
-    "email" : "joefrancisjr@live.com",
+    "mobile" : "650-123-4567",
+    "email" : "joefrancisjr@email.com",
     "github" : "joefrancisjr",
     "twitter" : "joefrancisjr",
-    "location" : "San Francisco, CA"
+    "location" : "420 A St, Daly City, CA 94014"
   },
   "skills" : [
     "HTML", "CSS", "JavaScript", "WordPress"
@@ -75,27 +75,25 @@ var education = {
   "schools": [
     {
       "school" : "Regional Technical Institute",
-      "city" : "Reno, NV",
+      "location" : "380 Edison Way, Reno, NV 89502",
       "major" : "Hardware and Computer Networking",
       "minor" : "",
-      "graduationYear" : "2005",
-      "courseInfo" : "https://en.wikipedia.org/wiki/Academy_of_Arts,_Careers_and_Technology"
+      "dates" : "2005",
     },
     {
       "school" : "Truckee Meadows Community College",
-      "city" : "Reno, NV",
+      "location" : "7000 Dandini Blvd, Reno, NV 89512",
       "major" : "Computer Networking",
       "minor" : "Web Design",
-      "graduationYear" : "2007",
-      "courseInfo" : "http://catalog.tmcc.edu/degrees-certificates/"
-    },
+      "dates" : "2007",
+    }
+  ],
+  "online": [
     {
       "school" : "Udacity",
-      "city" : "San Francisco, CA",
-      "major" : "Front End Web Developer",
-      "minor" : "",
-      "graduationYear" : "2016",
-      "courseInfo" : "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001?v=fe1"
+      "title" : "Front End Web Developer",
+      "url" : "https://www.udacity.com",
+      "dates" : "2016",
     }
   ]
 };
@@ -113,19 +111,19 @@ var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
 $("#header").append(formattedBioPic);
 
 var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-$("#header").append(formattedMobile);
+$("#footerContacts").append(formattedMobile);
 
 var formattedemail = HTMLemail.replace("%data%", bio.contacts.email);
-$("#header").append(formattedemail);
+$("#footerContacts").append(formattedemail);
 
 var formattedgithub = HTMLgithub.replace("%data%", bio.contacts.github);
-$("#header").append(formattedgithub);
+$("#footerContacts").append(formattedgithub);
 
 var formattedtwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-$("#header").append(formattedtwitter);
+$("#footerContacts").append(formattedtwitter);
 
 var formattedlocation = HTMLlocation.replace("%data%", bio.contacts.location);
-$("#header").append(formattedlocation);
+$("#footerContacts").append(formattedlocation);
 
 if (bio.skills.length > 0) {
 
@@ -206,19 +204,21 @@ projects.display = function () {
 projects.display();
 
 education.display = function () {
-  for (school in schools.education) {
-      $("#education").append(HTMLschoolStart);
-
-      var formattedSchoolName = HTMLSchoolName.replace("%data%", schools.education[school].school);
+  $("#education").append(HTMLschoolStart);
+  for (school in education.schools) {
+      var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].school);
       $(".education-entry:last").append(formattedSchoolName);
 
-      var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", schools.education[school].city);
+      var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
       $(".education-entry:last").append(formattedSchoolLocation);
 
-      var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", schools.education[school].major);
+      var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
       $(".education-entry:last").append(formattedSchoolMajor);
-    }
-  };
+
+      var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+      $(".education-entry:last").append(formattedSchoolDates);
+    };
+};
 
 education.display();
 
